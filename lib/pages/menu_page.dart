@@ -67,7 +67,6 @@ class _MenuPageState extends State<MenuPage>{
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          //promo banner
           Container(
             decoration: BoxDecoration(
               color: primaryColor,
@@ -115,15 +114,15 @@ class _MenuPageState extends State<MenuPage>{
             padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: TextField(
               decoration: InputDecoration(
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: Colors.white),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                hintText: "Search here...."
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  hintText: "Search here...."
               ),
             ),
           ),
@@ -146,14 +145,17 @@ class _MenuPageState extends State<MenuPage>{
           const SizedBox(height: 10,),
 
           Expanded(
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: foodMenu.length,
-                    itemBuilder: (context, index) => FoodTile(
-                      food: foodMenu[index],
-                      onTap: () => navigateToFoodDetails(index),
-                    )
-                ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: foodMenu.length,
+                  itemBuilder: (context, index) => FoodTile(
+                    food: foodMenu[index],
+                    onTap: () => navigateToFoodDetails(index),
+                  )
+              ),
+            ),
 
           ),
 
@@ -213,7 +215,7 @@ class _MenuPageState extends State<MenuPage>{
                 ],
               ),
             ),
-          )
+          ),
         ],
       ),
     );

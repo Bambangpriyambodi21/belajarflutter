@@ -13,10 +13,9 @@ class IntroPage extends StatelessWidget{
         children: [
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              padding: EdgeInsets.all(20),
               child: ListView(
                 children: [
-                  const SizedBox(height: 25),
 
                   //shop name
                   Text(
@@ -60,6 +59,15 @@ class IntroPage extends StatelessWidget{
                       text: "Get Started",
                     onTap: (){
                         Navigator.pushNamed(context, '/menupage');
+                    },
+                  ),
+
+                  const SizedBox(height: 10),
+
+                  MyButton(
+                    text: "Register",
+                    onTap: (){
+                      Navigator.pushNamed(context, '/registerpage');
                     },
                   ),
                 ],
