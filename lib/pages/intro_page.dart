@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:restaurant/components/button.dart';
+import 'package:restaurant/pages/view.dart';
 
 class IntroPage extends StatelessWidget{
   const IntroPage({super.key});
@@ -70,6 +71,21 @@ class IntroPage extends StatelessWidget{
                       Navigator.pushNamed(context, '/registerpage');
                     },
                   ),
+
+                  const SizedBox(height: 10),
+
+                  Container(
+                    margin: EdgeInsets.all(10),
+                    child: Builder(
+                      builder: (context){
+                        return ElevatedButton(onPressed: (){
+                          Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => ViewPage()));
+                        },
+                            child: Text("View Data"));
+                      },
+                    ),
+                  )
                 ],
               ),
             ),
