@@ -11,8 +11,26 @@ class ViewPage extends StatefulWidget{
 
 class _ViewPageState extends State<ViewPage>{
   List userdata = [];
+
+  Future<void> deleteRecord(String id) async {
+    try{
+      String uri = "http://192.168.42.173/flutter/delete.php";
+      var response = await http.post(Uri.parse(uri), body: {"id": id});
+      var res = jsonDecode(response.body);
+
+      if(res["success"]=="true"){
+        print("Delete successfully");
+        getrecord();
+      }else{
+        print("some issues");
+      }
+    }catch(e){
+      print(e);
+    }
+  }
+
   Future<void> getrecord() async{
-    String uri = "http://192.168.1.2/flutter/view.php";
+    String uri = "http://192.168.42.173/flutter/view.php";
     try{
       var response = await http.get(Uri.parse(uri));
 
@@ -44,6 +62,12 @@ class _ViewPageState extends State<ViewPage>{
             child: ListTile(
               title: Text(userdata[index]["email"]),
               subtitle: Text(userdata[index]["pass"]),
+              trailing: IconButton(
+                icon: Icon(Icons.delete),
+                onPressed: () {
+                  deleteRecord(userdata[index]["id"]);
+                },
+              ),
             ),
           );
         },

@@ -74,18 +74,12 @@ class IntroPage extends StatelessWidget{
 
                   const SizedBox(height: 10),
 
-                  Container(
-                    margin: EdgeInsets.all(10),
-                    child: Builder(
-                      builder: (context){
-                        return ElevatedButton(onPressed: (){
-                          Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => ViewPage()));
-                        },
-                            child: Text("View Data"));
-                      },
-                    ),
-                  )
+                  MyButton(
+                    text: "View",
+                    onTap: (){
+                      Navigator.pushNamed(context, '/view');
+                    },
+                  ),
                 ],
               ),
             ),

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         '/intropage': (context) => const IntroPage(),
         '/menupage': (context) => const MenuPage(),
         '/registerpage': (context) => RegisterPage(),
-
+        '/view': (context) => ViewPage(),
       },
     );
   }
