@@ -1,6 +1,8 @@
 import 'dart:convert';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:restaurant/pages/update.dart';
 
 class ViewPage extends StatefulWidget{
   ViewPage({Key? key}) : super(key: key);
@@ -60,6 +62,19 @@ class _ViewPageState extends State<ViewPage>{
           return Card(
             margin: EdgeInsets.all(10),
             child: ListTile(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>UpdatePage(
+                          userdata[index]["email"],
+                          userdata[index]["pass"],
+                        )));
+              },
+              leading: Icon(
+                CupertinoIcons.person,
+                color: Colors.black,
+              ),
               title: Text(userdata[index]["email"]),
               subtitle: Text(userdata[index]["pass"]),
               trailing: IconButton(

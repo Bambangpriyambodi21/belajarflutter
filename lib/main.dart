@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant/pages/menu_page.dart';
 import 'package:restaurant/pages/register.dart';
+import 'package:restaurant/pages/update.dart';
 import 'package:restaurant/pages/view.dart';
 import 'pages/intro_page.dart';
 
