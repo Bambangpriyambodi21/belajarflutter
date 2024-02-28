@@ -4,52 +4,52 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 
-class UpdatePage extends StatefulWidget {
-  String email;
-  String pass;
-  UpdatePage(this.email,this.pass);
+class login extends StatefulWidget {
+  const login({Key? key}) : super(key: key);
 
   @override
-  State<UpdatePage> createState() => _UpdatePageState();
+  State<login> createState() => _loginState();
 }
 
-class _UpdatePageState extends State<UpdatePage> {
+class _loginState extends State<login> {
   TextEditingController email = TextEditingController();
   TextEditingController pass = TextEditingController();
 
-  Future<void> updaterecord() async {
-    try{
-      String uri = "http://192.168.42.173/flutter/update.php";
-      var res = await http.post(Uri.parse(uri), body: {
-        "email":email.text,
-        "pass":pass.text
-      });
+  Future<void> insertrecord() async {
+    if(email.text!=""||pass.text!=""){
+      try {
+        String uri = "http://192.168.42.173/flutter/login.php";
+        var res = await http.post(Uri.parse(uri), body: {
+          "email":email.text,
+          "pass":pass.text
+        });
 
-      var response = jsonDecode(res.body);
+        var response = jsonDecode(res.body);
 
-      if(response["success"]=="true"){
-        print("Success Updated");
-      }else{
-        print("Error");
+        if(response["success"]=="true"){
+          print("Success Login");
+          setState(() {
+            Navigator.pushNamed(context, '/menupage');
+          });
+        }else{
+          print("Error");
+        }
+      }catch(e){
+        print(e);
       }
-    }catch(e){
-      print(e);
+    }else{
+      print("Please fill all fields");
     }
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    email.text=widget.email;
-    pass.text=widget.pass;
-    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Update data"),
+        title: Text(
+          "Login Page",
+          style: GoogleFonts.dmSerifDisplay(),
+        ),
       ),
       body: Column(
         children: [
@@ -86,13 +86,13 @@ class _UpdatePageState extends State<UpdatePage> {
 
             child: ElevatedButton(
               onPressed: () {
-                updaterecord();
+                insertrecord();
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 218, 93, 85),
               ),
               child: Text(
-                "Register",
+                "Login",
                 style: GoogleFonts.dmSerifDisplay(
                     color: Colors.white,
                     fontWeight: FontWeight.bold

@@ -66,6 +66,15 @@ class IntroPage extends StatelessWidget{
                   const SizedBox(height: 10),
 
                   MyButton(
+                    text: "Login",
+                    onTap: (){
+                      Navigator.pushNamed(context, '/login');
+                    },
+                  ),
+
+                  const SizedBox(height: 10),
+
+                  MyButton(
                     text: "Register",
                     onTap: (){
                       Navigator.pushNamed(context, '/registerpage');

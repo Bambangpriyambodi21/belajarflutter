@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant/pages/login.dart';
 import 'package:restaurant/pages/menu_page.dart';
 import 'package:restaurant/pages/register.dart';
 import 'package:restaurant/pages/update.dart';
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         '/menupage': (context) => const MenuPage(),
         '/registerpage': (context) => RegisterPage(),
         '/view': (context) => ViewPage(),
+        '/login': (context) => login(),
       },
     );
   }
