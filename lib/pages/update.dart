@@ -19,7 +19,7 @@ class _UpdatePageState extends State<UpdatePage> {
 
   Future<void> updaterecord() async {
     try{
-      String uri = "http://192.168.42.173/flutter/update.php";
+      String uri = "http://192.168.1.6/flutter/update.php";
       var res = await http.post(Uri.parse(uri), body: {
         "email":email.text,
         "pass":pass.text

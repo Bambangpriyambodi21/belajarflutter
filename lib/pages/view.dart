@@ -16,7 +16,7 @@ class _ViewPageState extends State<ViewPage>{
 
   Future<void> deleteRecord(String id) async {
     try{
-      String uri = "http://192.168.42.173/flutter/delete.php";
+      String uri = "http://192.168.1.6/flutter/delete.php";
       var response = await http.post(Uri.parse(uri), body: {"id": id});
       var res = jsonDecode(response.body);
 
@@ -32,7 +32,7 @@ class _ViewPageState extends State<ViewPage>{
   }
 
   Future<void> getrecord() async{
-    String uri = "http://192.168.42.173/flutter/view.php";
+    String uri = "http://192.168.1.6/flutter/view.php";
     try{
       var response = await http.get(Uri.parse(uri));
 

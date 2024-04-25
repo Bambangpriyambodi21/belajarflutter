@@ -18,7 +18,6 @@ class _FoodDetailsPageState extends State<FoodDetailsPage>{
 
   //quantity
   int quantityCount = 0;
-  int price = 40000;
 
   //decrement quantity
   void decrementQuantity(){
@@ -133,7 +132,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage>{
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     //price
-                    Text("\Rp. "+widget.food.price.toString(),
+                    Text("\Rp. "+(widget.food.price*quantityCount).toString(),
                       style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,

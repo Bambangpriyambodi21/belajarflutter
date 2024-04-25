@@ -18,7 +18,7 @@ class _loginState extends State<login> {
   Future<void> insertrecord() async {
     if(email.text!=""||pass.text!=""){
       try {
-        String uri = "http://192.168.42.173/flutter/login.php";
+        String uri = "http://192.168.1.6/flutter/login.php";
         var res = await http.post(Uri.parse(uri), body: {
           "email":email.text,
           "pass":pass.text
