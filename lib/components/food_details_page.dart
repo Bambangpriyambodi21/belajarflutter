@@ -18,6 +18,7 @@ class _FoodDetailsPageState extends State<FoodDetailsPage>{
 
   //quantity
   int quantityCount = 0;
+  int price = 40000;
 
   //decrement quantity
   void decrementQuantity(){
@@ -30,6 +31,12 @@ class _FoodDetailsPageState extends State<FoodDetailsPage>{
   void incrementQuantity(){
     setState(() {
       quantityCount++;
+    });
+  }
+
+  void total(){
+    setState(() {
+      int tot = quantityCount*price;
     });
   }
 

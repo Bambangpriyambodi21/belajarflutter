@@ -32,7 +32,7 @@ class _loginState extends State<login> {
             Navigator.pushNamed(context, '/menupage');
           });
         }else{
-          print("Error");
+          print("Login error");
         }
       }catch(e){
         print(e);
