@@ -33,12 +33,6 @@ class _FoodDetailsPageState extends State<FoodDetailsPage>{
     });
   }
 
-  void total(){
-    setState(() {
-      int tot = quantityCount*price;
-    });
-  }
-
   // add to cart
   void addToCart(){}
 
